@@ -8,7 +8,7 @@ import os
 from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
 
-# Load environment and setup
+# Load environment and setup 
 def init_environment():
     from dotenv import load_dotenv
     load_dotenv(dotenv_path="research/.env")
@@ -60,7 +60,7 @@ def query_with_context(query, retriever, llm):
     try:
         wiki_context = wiki.run(query)
     except Exception:
-        wiki_context = "Wikipedia info not available."
+        wiki_context = "Wikipedia information not available."
 
     combined_doc = Document(
         page_content=f"{pinecone_context}\n\n{wiki_context}"
