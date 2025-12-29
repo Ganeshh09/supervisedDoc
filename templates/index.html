@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Chatbot - ChatDoctor</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: white;
+      margin-top: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      background: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+    }
+
+    .chat-box {
+      padding: 20px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .patient {
+      align-self: flex-end;
+      background: #d1ecf1;
+      color: #0c5460;
+      padding: 10px 15px;
+      border-radius: 20px 20px 0 20px;
+      max-width: 80%;
+    }
+
+    .doctor {
+      align-self: flex-start;
+      background: #d4edda;
+      color: #155724;
+      padding: 10px 15px;
+      border-radius: 20px 20px 20px 0;
+      max-width: 80%;
+    }
+
+    form {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-right: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    button {
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      SupervisedDoc - Your Medical Assistant
+    </div>
+    <div class="chat-box">
+      {% if query %}
+        <div class="message patient">
+          <strong>Patient:</strong> {{ query }}
+        </div>
+      {% endif %}
+      {% if answer %}
+        <div class="message doctor">
+          <strong>Doctor:</strong> {{ answer }}
+        </div>
+      {% endif %}
+    </div>
+    <form method="post">
+      <input type="text" name="query" placeholder="Describe your symptoms or ask a question..." required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>

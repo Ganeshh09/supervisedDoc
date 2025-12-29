@@ -1,0 +1,12 @@
+flask
+langchain
+sentence-transformers==2.2.2
+huggingface_hub
+wikipedia
+python-dotenv
+pypdf
+pinecone-client
+langchain-pinecone
+langchain_community
+langchain_openai
+langchain_experimental
